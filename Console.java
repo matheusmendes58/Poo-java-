@@ -1,43 +1,45 @@
-import java.util.Scanner;
+package view;
 
-/**
-* classe do tipo interface com usuario 
-*/
+import java.util.Scanner;
+import entidade.Curso;
+
 public class Console {
-    
-    void executa(){
-    	Scanner entrada = new Scanner(System.in); 
-        Pessoa pessoa = new Pessoa();
-    	
-    	System.out.print("Digite seu nome  : ");
-    	String novonome = entrada.nextLine();
-        pessoa.setNome(novonome);
-    	
-    	System.out.print("Digite seu peso : ");
-    	double peso = entrada.nextDouble();
-    	pessoa.setPeso(peso);
-    	
-    	System.out.print("Digite sua altura : ");
-    	double altura = entrada.nextDouble();
-    	pessoa.setAltura(altura);
-    	
-    	IMC imc = new IMC();
-    	
-    	//double indice = imc.getIndice(pessoa.getPeso(), pessoa.getAltura());
-    	//double indice = imc.getIndice(pessoa); 
-    	imc.atualiza(pessoa);
-    	
-    	
-    	System.out.println("\nRelatorio *******");
-    	System.out.println("nome   = " + pessoa.getNome());
-    	System.out.println("peso   = " + pessoa.getPeso());
-    	System.out.println("altura = " + pessoa.getAltura());
-    	System.out.println("Seu IMC e = "   + pessoa.getImc());
-    	System.out.println("Sua avaliacao e = "   + pessoa.getSituacao());
-    
-    
-    }
-  
-  
-  
+
+	public void executa() {
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		Curso ia = new Curso("12349", "Inteligencia Artificial");
+		
+		
+		ia.setNotaProjeto(7);
+		ia.setNotaAvaliacao1(1);
+		ia.setNotaAvaliacao2(4);
+		
+		System.out.println("*** Relatorio final");
+		System.out.println("Matricula: " + ia.getMatricula());
+		System.out.println("Nome: " + ia.getNome());
+		System.out.println("AV1: " + ia.getNotaAvaliacao1());
+		System.out.println("AV2: " + ia.getNotaAvaliacao2());
+		System.out.println("Projeto: " + ia.getNotaProjeto());
+		System.out.println("Frequencia: " + ia.getFrequencia() + "%");
+		System.out.println("***");
+		System.out.println("Media: " + ia.getMedia());
+		System.out.print("Situação: ");
+		if (ia.aprovado())
+			System.out.println("Aprovado");
+		else 
+			System.out.println("Reprovado");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
 }
